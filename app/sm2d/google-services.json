@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "423130771020",
+    "firebase_url": "https://sm2d-ce6df.firebaseio.com",
+    "project_id": "sm2d-ce6df",
+    "storage_bucket": "sm2d-ce6df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423130771020:android:551ec741d6f4015fc0cee9",
+        "android_client_info": {
+          "package_name": "com.virtual.sm2d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423130771020-8j7vk6sn2rillq747mqiclnpfkto98eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQXpeDwI9Lyu6uEyA_7n-OkWloktzYQXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423130771020-8j7vk6sn2rillq747mqiclnpfkto98eq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

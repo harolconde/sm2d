@@ -1,0 +1,23 @@
+<ion-content
+    [scrollEvents]="true"
+    class="container"
+>
+    <div class="register-section" slot="fixed">
+        <h1 class="title">Registrarse</h1>
+        <div class="container-component">
+            <form [formGroup]="formRegister" class="form-register" (ngSubmit)="register()">
+                <ion-input type="text" placeholder="Nombre" class="input" required="true" formControlName="name"></ion-input>
+                <ion-input type="email" placeholder="Email" class="input" required="true" formControlName="email"></ion-input>
+                <ion-input type="password" placeholder="Contraseña" class="input" required="true" formControlName="password"></ion-input>
+                <div class="button-submit">
+                    <ion-button type="submit" class="btn-register" shape="round" expand="full">Registrarse</ion-button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+    <div class="back-to-login">
+        <span class="subtitle">¿Ya tienes una cuenta?</span>
+        <ion-button class="btn-login" shape="round" expand="full">Iniciar sesión</ion-button>
+    </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "sm2d",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

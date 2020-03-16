@@ -1,0 +1,61 @@
+$colorPrimary: #ffcc80;
+
+.container {
+    --background: #efefef;
+    .register-section {
+        width: 100%;
+        padding: 1.2rem;
+        .title {
+            color: $colorPrimary;
+            font-family: "Roboto Slab", serif;
+            font-size: 2rem;
+            margin-top: 17%;
+            margin-bottom: 2rem;
+        }
+        .form-register {
+            .input {
+                background-color: #ffff;
+                border-radius: 8px;
+                height: 45px;
+                padding-top: 0.45rem !important;
+                padding-bottom: 0.45rem !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+                margin-bottom: 1.7rem !important;
+            }
+            .button-submit{
+                .btn-register{
+                    height: 50px;
+                    --background: #ffcc80;
+                    color: #ffffff;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-family: 'Roboto', sans-serif, Verdana;
+                    font-weight: 700;
+                }
+            }
+        }
+        
+    }
+    .back-to-login{
+        width: 100%;
+        position: absolute;
+        bottom: 0rem;
+        padding: 1.2rem;
+        text-align: center;
+        .subtitle{
+            color: #333333;
+            font-family: 'Roboto slab', serif;
+            font-size: 1rem;
+        }
+        .btn-login{
+            margin-top: 2.5rem;
+            --background: #ffffff;
+            color: $colorPrimary;
+            text-transform: uppercase;
+            height: 50px;
+            font-family: 'Roboto', sans-serif, Verdana;
+            font-weight: 700;
+        }
+    }
+}

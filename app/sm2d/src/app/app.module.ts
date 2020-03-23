@@ -14,9 +14,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { RegistroComponent } from "./componentes/registro/registro.component";
 
 import { from } from "rxjs";
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
-    declarations: [AppComponent, RegistroComponent],
+    declarations: [AppComponent, RegistroComponent, LoginComponent],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -25,6 +26,10 @@ import { from } from "rxjs";
             {
                 path: "registro",
                 component: RegistroComponent
+            },
+            {
+                path:'iniciar-sesion',
+                component: LoginComponent
             }
         ]),
         AppRoutingModule,

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { LoginComponent } from './componentes/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'foder',
     redirectTo: 'folder/Inbox',
     pathMatch: 'full'
   },
@@ -14,7 +15,16 @@ const routes: Routes = [
   },
   {
     path:'registro',
-    component: RegistroComponent
+    component: RegistroComponent,
+  },
+  {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   }
 ];
 

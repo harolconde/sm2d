@@ -1,12 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>dashboard</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" class="header-component">
+    <ion-toolbar class="container-header">
+        <ion-buttons slot="start">
+            <ion-menu-button class="btn-hamburguer"></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button class="btn-cart"><ion-icon name="cart-outline"></ion-icon></ion-button>
+        </ion-buttons>
+        <ion-title>dashboard</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [scrollEvents]="true" class="container" slot="fixed"> 
+    
 </ion-content>

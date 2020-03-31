@@ -16,8 +16,16 @@ export class LoginComponent implements OnInit {
     });
     constructor(private login: LoginRegisterService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.login.getLoading();
+      this.sesionState();
+    }
 
+    sesionState(){
+      this.login.getSesionActive().then(() => {
+        this.login.stopLoading();
+      });
+    }
     loginUser() {
         let user = this.formLogin.get("email").value;
         let pass = this.formLogin.get("password").value;
@@ -31,7 +39,7 @@ export class LoginComponent implements OnInit {
               this.message = true;
             });
     }
-    
+
     reset(){
       this.formLogin.reset();
     }

@@ -1,0 +1,106 @@
+$color: #ffcc80;
+.header-component{
+    background-color: #efefef;
+    .container-header{
+        --background: #efefef;
+        .btn-hamburguer{
+            --color: #ffcc80;
+        }
+    } 
+}
+.container{
+    --background: #efefef; 
+    .edit-user{
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        .list{
+            width: 100%;
+            background: transparent;
+            .item{
+                --min-height: auto;
+                --background: transparent;
+                height: auto;
+                border-bottom: 1px solid #ddd;
+                .container-item{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    padding-top: 1.5rem;
+                    padding-bottom: 1.5rem;
+                    .label{
+                        font-size: 1rem;
+                        color: #333;
+                        --border-width: 0px;
+                        --border-style: solid;
+                        --border-color: #ffcc80;
+                        --background-focused: #ffcc80;
+                        --background-activated: #ffcc80;
+                        --color: #ffcc80;
+                        font-family: 'Roboto Slab', serif;
+                    }
+                    .form-name {
+                        margin-top: 1.5rem;
+                        .input {
+                            background-color: #ffff;
+                            border-radius: 8px;
+                            height: 45px;
+                            padding-top: 0.45rem !important;
+                            padding-bottom: 0.45rem !important;
+                            padding-left: 1rem !important;
+                            padding-right: 1rem !important;
+                            margin-bottom: 1.7rem !important;
+                        }
+                        .button-submit{
+                            .btn-change-name{
+                                height: 50px;
+                                --background: #ffcc80;
+                                color: #ffffff;
+                                font-size: 1rem;
+                                text-transform: uppercase;
+                                font-family: 'Roboto', sans-serif, Verdana;
+                                font-weight: 700;
+                            }
+                            .btn-change-dates{
+                                height: 50px;
+                                --background: #ffcc80;
+                                color: #ffffff;
+                                font-size: 1rem;
+                                text-transform: uppercase;
+                                font-family: 'Roboto', sans-serif, Verdana;
+                                font-weight: 700;
+                            }
+                            .btn-change-number{
+                                height: 50px;
+                                --background: #ffcc80;
+                                color: #ffffff;
+                                font-size: 1rem;
+                                text-transform: uppercase;
+                                font-family: 'Roboto', sans-serif, Verdana;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+            .item:nth-child(1){
+                border-top: 1px solid #ddd;     
+            }
+        }
+        .container-btn-volver{
+            width: 100%;
+            margin-top: 1.2rem;
+            text-align: center;
+            background-color: #efefef;
+            .btn-volver-home{
+                margin-top: 2.5rem;
+                --background: #ffffff;
+                color: $color;
+                text-transform: uppercase;
+                height: 50px;
+                font-family: 'Roboto', sans-serif, Verdana;
+                font-weight: 700;
+            }
+        }
+    }
+}

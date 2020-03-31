@@ -12,12 +12,13 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { RegistroComponent } from "./componentes/registro/registro.component";
+import { EditarUsuarioComponent } from "./componentes/editar-usuario/editar-usuario.component";
 
 import { from } from "rxjs";
 import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
-    declarations: [AppComponent, RegistroComponent, LoginComponent],
+    declarations: [AppComponent, RegistroComponent, LoginComponent, EditarUsuarioComponent],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -30,6 +31,10 @@ import { LoginComponent } from './componentes/login/login.component';
             {
                 path:'iniciar-sesion',
                 component: LoginComponent
+            },
+            {
+                path: 'editar-perfil',
+                component: EditarUsuarioComponent
             }
         ]),
         AppRoutingModule,

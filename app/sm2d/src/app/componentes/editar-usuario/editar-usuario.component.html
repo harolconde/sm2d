@@ -1,0 +1,120 @@
+<ion-header [translucent]="true" class="header-component" lines="none">
+    <ion-toolbar class="container-header" lines="none">
+        <ion-buttons slot="start">
+            <ion-menu-button class="btn-hamburguer"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Editar perfíl</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" class="container" slot="fixed">
+    <div class="edit-user">
+        <ion-list class="list">
+            <ion-item class="item" lines="none" >
+                <div class="container-item">
+                    <ion-button type="button" shape="round" fill="outline"  class="label" (click)="showForm()"><ion-icon slot="start" name="person-outline"></ion-icon> Editar nombre</ion-button>
+                    <form [formGroup]="formUdpateName" class="form-name" *ngIf="editarNombre" (ngSubmit)="updateName()">
+                        <ion-input
+                            type="text"
+                            placeholder="Nombre"
+                            class="input"
+                            formControlName="name"
+                            required="true"
+                        ></ion-input>
+                        <ion-label
+                            color="danger"
+                            class="label-message"
+                            *ngIf="message"
+                            >Error al actualizar el nombre del
+                            usuario</ion-label
+                        >
+                        <div class="button-submit">
+                            <ion-button
+                                type="submit"
+                                class="btn-change-name"
+                                shape="round"
+                                expand="full"
+                                >Actualizar</ion-button
+                            >
+                        </div>
+                    </form>
+                </div>
+            </ion-item>
+            <ion-item lines="none">
+                <div class="container-item">
+                    <ion-button type="button" shape="round" fill="outline"  class="label" (click)="showFormDataUser()"><ion-icon slot="start" name="create-outline"></ion-icon> Editar correo y contraseña</ion-button>
+                    <form [formGroup]="formUpdateDataUser" class="form-name" *ngIf="editarDatosUsuario" (ngSubmit)="updateDataUser()">
+                        <ion-input
+                            type="email"
+                            placeholder="Correo electronico"
+                            class="input"
+                            formControlName="email"
+                            required="true"
+                        ></ion-input>
+                        <ion-input
+                            type="password"
+                            placeholder="Contraseña"
+                            class="input"
+                            formControlName="password"
+                            required="true"
+                        ></ion-input>
+                        <ion-label
+                            color="danger"
+                            class="label-message"
+                            *ngIf="message"
+                            >Error al actualizar</ion-label
+                        >
+                        <div class="button-submit">
+                            <ion-button
+                                type="submit"
+                                class="btn-change-dates"
+                                shape="round"
+                                expand="full"
+                                >Actualizar</ion-button
+                            >
+                        </div>
+                    </form>
+                </div>
+            </ion-item>
+            <ion-item lines="none">
+                <div class="container-item">
+                    <ion-button type="button" shape="round" fill="outline"  class="label" (click)="showFormTarjeta()"><ion-icon slot="start" name="card-outline"></ion-icon> Agregar o editar tarjeta</ion-button>
+                    <form [formGroup]="formAddCreditCard" class="form-name" *ngIf="editarTarjeta"(ngSubmit)="registerTarget()">
+                        <ion-label
+                            color="danger"
+                            class="label-message"
+                            *ngIf="message"
+                            >Numero de tarjeta:</ion-label
+                        >
+                        <ion-input
+                            type="number"
+                            placeholder="Contraseña"
+                            class="input"
+                            formControlName="card"
+                            required="true"
+                        ></ion-input>
+                        <div class="button-submit">
+                            <ion-button
+                                type="submit"
+                                class="btn-change-number"
+                                shape="round"
+                                expand="full"
+                                >Actualizar</ion-button
+                            >
+                        </div>
+                    </form>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="container-btn-volver">
+            <ion-button
+                type="submit"
+                class="btn-volver-home"
+                shape="round"
+                expand="full"
+                [routerLink]="'/dashboard'"
+                >Volver al inicio</ion-button
+            >
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,22 @@
+$color: #ffcc80;
+.header-component{
+    background-color: #efefef;
+    .container-header{
+        --background: #efefef;
+        .btn-hamburguer{
+            --color: #ffcc80;
+            margin-left: 1rem;
+            --padding-start: 0px;
+            --padding-end: 0px;
+        }
+        .btn-cart{
+            --color: #efefef;
+            background: $color;
+            margin-right: 1rem;
+            border-radius: 10px;
+        }
+    } 
+}
+.container{
+    --background: #efefef;
+}

@@ -13,6 +13,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { RegistroComponent } from "./componentes/registro/registro.component";
 import { EditarUsuarioComponent } from "./componentes/editar-usuario/editar-usuario.component";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { from } from "rxjs";
 import { LoginComponent } from './componentes/login/login.component';
@@ -40,7 +41,8 @@ import { LoginComponent } from './componentes/login/login.component';
         AppRoutingModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFirestoreModule
+        AngularFirestoreModule,
+        AngularFireStorageModule
     ],
     providers: [
         StatusBar,

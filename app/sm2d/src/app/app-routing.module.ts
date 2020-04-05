@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path:'editar-perfil',
     component: EditarUsuarioComponent
+  },
+  {
+    path: 'upload-products',
+    loadChildren: () => import('./pages/upload-products/upload-products.module').then( m => m.UploadProductsPageModule)
   }
 ];
 

@@ -1,0 +1,84 @@
+<ion-header [translucent]="true" class="header-component ion-no-border">
+    <ion-toolbar class="container-header">
+        <ion-buttons slot="start">
+            <ion-menu-button class="btn-hamburguer"></ion-menu-button>
+        </ion-buttons>
+        <ion-buttons slot="end" [routerLink]="['/dashboard']">
+            <ion-button class="btn-cart"
+                ><ion-icon name="home-outline"></ion-icon
+            ></ion-button>
+        </ion-buttons>
+        <ion-title>Crear productos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" slot="fixed" class="container">
+    <div class="container-products">
+        <div class="custom-file">
+            <div class="content-image">
+                <div class="image">
+                    <div class="percent" *ngIf="spinner">
+                        <ion-spinner name="crescent" class="spinner"></ion-spinner>
+                        <!-- <span class="info">{{uploadPercent | async}}%</span> -->
+                    </div>
+                    <img [src]="urlImage" alt="" class="img-selected">
+                </div>
+            </div>
+            <input type="file" accept=".png, jpg, jpeg, .svg" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="uploadImg($event)">
+            <label class="custom-file-label" for="inputGroupFile01">Selecciona imagen
+                <span class="icon">
+                    <ion-icon class="icon-img" name="image-outline"></ion-icon>
+                </span>
+            </label>
+            <ion-input #valueUrlImage type="text" class="urlImagen" id="urlImagen">{{urlImage }}</ion-input>
+          </div>
+        <form [formGroup]="formProducts" class="form-products" (ngSubmit)="createProduct()">
+            <ion-item class="item" lines="none">
+                <div class="group">
+                    <ion-label class="label">
+                        Nombre del producto:
+                    </ion-label>
+                    <ion-input class="input" type="text" placeholder="" formControlName="nombre" required></ion-input>
+                </div>
+            </ion-item>
+            <ion-item class="item" lines="none">
+                <div class="group">
+                    <ion-label class="label">
+                        Precio:
+                    </ion-label>
+                    <ion-input class="input" type="number" placeholder="" formControlName="precio" required></ion-input>
+                </div>
+            </ion-item>
+            <ion-item class="item" lines="none">
+                <div class="group">
+                    <ion-label class="label">
+                        Marca:
+                    </ion-label>
+                    <ion-input class="input" type="text" placeholder="" formControlName="marca" required></ion-input>
+                </div>
+            </ion-item>
+            <ion-item class="item" lines="none">
+                <div class="group">
+                    <ion-label class="label">
+                        Gramaje:
+                    </ion-label>
+                    <ion-input class="input" type="number" placeholder="" formControlName="gramaje" required></ion-input>
+                </div>
+            </ion-item>
+            <ion-item class="item" lines="none">
+                <div class="group">
+                    <ion-label class="label">
+                        Cantidad:
+                    </ion-label>
+                    <ion-input class="input" type="number" placeholder="" formControlName="stock" required></ion-input>
+                </div>
+            </ion-item>
+            <div class="btn-submit">
+                <ion-button type="submit" class="btn" expand="full" shape="round" *ngIf="urlImage; else btnDisabled">Crear Producto</ion-button>
+                <ng-template #btnDisabled>
+                    <ion-button type="submit" disabled class="btn" expand="full" shape="round" >Crear Producto</ion-button>
+                </ng-template>
+            </div>
+        </form>
+    </div>
+</ion-content>

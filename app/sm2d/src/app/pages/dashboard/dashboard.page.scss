@@ -74,6 +74,15 @@ $color: #ffcc80;
                                 color: #111;
                                 font-weight: 500;
                             }
+                            .valor{
+                                color: #1F974B;
+                                &.valor2{
+                                    color: #ef6c00;
+                                }
+                                &.valor3{
+                                    color: #b71c1c;
+                                }
+                            }
                         }
                     }
                     &.col-btn-todos {

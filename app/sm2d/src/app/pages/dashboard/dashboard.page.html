@@ -4,7 +4,7 @@
             <ion-menu-button class="btn-hamburguer"></ion-menu-button>
         </ion-buttons>
         <ion-buttons slot="end" [routerLink]="['/carrito']">
-            <ion-badge class="badge">{{cantPrd}}</ion-badge>
+            <!-- <ion-badge class="badge">{{cantPrd}}</ion-badge> -->
             <ion-button class="btn-cart"
                 >
                 <ion-icon name="cart-outline"></ion-icon
@@ -41,10 +41,19 @@
                 <ion-col class="col col-valor" size="9">
                     <div class="restante">
                         <span class="title">Cuanto me queda?</span>
-                        <span class="valor">
+                        <span class="valor" *ngIf="presupuesto > 5000;else valueCero">
                             $ {{presupuesto}}
                         </span>
-                        
+                        <!-- <ng-template #valueLow>
+                            <span class="valor valor2">
+                                $ {{presupuesto}}
+                            </span>
+                        </ng-template> -->
+                        <ng-template #valueCero>
+                            <span class="valor valor3">
+                                $ {{presupuesto}}
+                            </span>
+                        </ng-template>
                     </div>
                 </ion-col>
                 <ion-col class="col col-btn-todos" size="3">

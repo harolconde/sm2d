@@ -20,9 +20,12 @@ import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { from } from "rxjs";
 import { LoginComponent } from './componentes/login/login.component';
 import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
+import { PipeFilterPipe } from './pipes/pipe-filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-    declarations: [AppComponent, RegistroComponent, LoginComponent, EditarUsuarioComponent, ProductoDetalleComponent, CarritoComponent, TodosLosProductosComponent],
+    declarations: [AppComponent, RegistroComponent, LoginComponent, EditarUsuarioComponent, ProductoDetalleComponent, CarritoComponent, TodosLosProductosComponent, PipeFilterPipe, FilterPipe],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -57,7 +60,8 @@ import { TodosLosProductosComponent } from './componentes/todos-los-productos/to
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFirestoreModule,
-        AngularFireStorageModule
+        AngularFireStorageModule,
+        FormsModule
     ],
     providers: [
         StatusBar,

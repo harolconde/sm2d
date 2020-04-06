@@ -7,6 +7,9 @@
                 defaultHref="/dashboard"
             ></ion-back-button>
         </ion-buttons>
+        <ion-input class="form-control" name="filterPost" [(ngModel)]="filterPost">
+            <ion-icon name="search-outline" class="icon"></ion-icon>
+        </ion-input>
         <ion-buttons slot="end" [routerLink]="['/carrito']">
             <ion-button class="btn-cart"
                 ><ion-icon name="cart-outline"></ion-icon
@@ -18,7 +21,7 @@
 
 <ion-content [scrollEvents]="true" class="container" slot="fixed">
     <div class="container-products">
-        <ion-card class="card" *ngFor="let producto of allProductos; index as i" id="{{producto.id}}" [routerLink]="['/producto', producto.id]">
+        <ion-card class="card" *ngFor="let producto of allProductos | filter:filterPost" id="{{producto.id}}" [routerLink]="['/producto', producto.id]">
             <div class="container-img">
                 <div class="image">
                     <img [src]="producto.img" alt="" class="img">

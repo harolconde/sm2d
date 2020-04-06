@@ -9,6 +9,7 @@ import { Producto } from '../../models/producto';
 })
 export class TodosLosProductosComponent implements OnInit {
 
+  public filterPost = '';
   public allProductos: Array<Producto> = [];
   constructor(private producto: ProductsService) { }
 

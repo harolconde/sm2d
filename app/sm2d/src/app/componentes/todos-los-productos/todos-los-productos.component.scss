@@ -9,6 +9,24 @@ $color: #ffcc80;
             --padding-start: 0px;
             --padding-end: 0px;
         }
+        .form-control{
+            max-width: 81%;
+            height: 31px;
+            display: block;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            overflow: hidden;
+            position: relative;
+            .icon{
+                color: $color;
+                font-size: 1.5rem;
+                position: absolute;
+                right: 5px;
+            }
+        }
         .btn-cart{
             --color: #efefef;
             background: #ffcc80;

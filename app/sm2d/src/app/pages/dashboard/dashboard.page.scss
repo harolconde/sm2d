@@ -1,65 +1,91 @@
 $color: #ffcc80;
-.header-component{
+.header-component {
     background-color: #efefef;
-    .container-header{
+    .container-header {
         --background: #efefef;
-        .btn-hamburguer{
+        .btn-hamburguer {
             --color: #ffcc80;
             margin-left: 1rem;
             --padding-start: 0px;
             --padding-end: 0px;
         }
-        .btn-cart{
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            --background: #fff;
+            --color: #ffcc80;
+            z-index: 10;
+            --padding-top: 3px;
+            --padding-end: 5px;
+            --padding-bottom: 3px;
+            --padding-start: 5px;
+            border-radius: 50px;
+            min-width: 20px;
+            min-height: 20px;
+        }
+        .btn-cart {
+            position: relative;
             --color: #efefef;
             background: $color;
             margin-right: 1rem;
             border-radius: 10px;
         }
-    } 
+    }
 }
-.container{
+.container {
     --background: #efefef;
-    .presupuesto{
+    .presupuesto {
+        height: calc(10vh);
         width: 100%;
-        padding: 1rem 1.5rem .1rem 1.5rem;
-        .input-presupuesto{
+        padding: 1rem 1.5rem 0.1rem 1.5rem;
+        display: flex;
+        align-items: flex-end;
+        .form{
             width: 100%;
-            border-radius: 10px;
-            background-color: #fff;
-            --padding-start: 1rem;
-            --padding-end: 1rem;
-            font-family: 'Roboto Slab';
+            display: flex;
+            align-items: center;
+            .input-presupuesto {
+                border-radius: 10px;
+                background-color: #fff;
+                --padding-start: 1rem;
+                --padding-end: 1rem;
+                font-family: "Roboto Slab";
+            }
         }
+        
     }
-    .productos{
-
+    .productos {
+        height: calc(60vh);
+        position: relative;
     }
-    .presupuesto-restante{
+    .presupuesto-restante {
+        height: calc(10vh);
         padding-left: 1.5rem;
         padding-right: 1.5rem;
-        .grid{
-            .row{
-                .col{
-                    &.col-valor{
-                        .restante{
+        .grid {
+            .row {
+                .col {
+                    &.col-valor {
+                        .restante {
                             display: flex;
                             flex-direction: column;
-                            .title{
+                            .title {
                                 color: #111;
                                 font-weight: 500;
                             }
                         }
                     }
-                    &.col-btn-todos{
-                        .container-btn-apps{
+                    &.col-btn-todos {
+                        .container-btn-apps {
                             position: relative;
-                            .btn-apps{
+                            .btn-apps {
                                 background-color: $color;
                                 border-radius: 10px;
                                 position: absolute;
                                 right: 0;
                                 top: 0;
-                                .icon{
+                                .icon {
                                     color: #fff;
                                 }
                             }
@@ -68,5 +94,12 @@ $color: #ffcc80;
                 }
             }
         }
+    }
+    .products-cart {
+        height: calc(10vh);
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        background-color: #fff;
+        border-radius: 50px;
     }
 }

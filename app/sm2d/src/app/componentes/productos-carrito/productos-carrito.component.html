@@ -1,0 +1,18 @@
+<div class="container-products">
+    <ion-slides class="slides-all" pager="false" [options]="slideOpts">
+        <ion-slide class="slide-item" *ngFor="let productoCarro of productosCarrito; index as i">
+            <div class="container-img">
+                <div class="image">
+                    <img
+                        [src]="
+                        productoCarro.imagen
+                        "
+                        alt=""
+                        class="img"
+                    />
+                    <ion-badge class="badge" >{{productoCarro.cantidad}}</ion-badge>
+                </div>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</div>

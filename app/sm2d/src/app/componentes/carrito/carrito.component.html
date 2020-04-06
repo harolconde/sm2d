@@ -1,0 +1,41 @@
+<ion-header [translucent]="true" class="header-component ion-no-border">
+    <ion-toolbar class="container-header">
+        <ion-buttons slot="start">
+            <ion-back-button
+                class="btn-back"
+                [text]="Volver"
+                defaultHref="/dashboard"
+            ></ion-back-button>
+        </ion-buttons>
+        
+        <ion-title class="total" slot="end">Total: ${{total}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" class="container" slot="fixed">
+    <div class="container-products-cart">
+        <ion-list class="list">
+            <ion-item class="item" *ngFor="let produto of productosCart; index as i">
+                <ion-grid class="grid">
+                    <ion-row class="row">
+                        <ion-col class="col col-img" size="3">
+                            <img [src]="produto.imagen" alt="">
+                        </ion-col>
+                        <ion-col class="col col-info" size="9">
+                            <div class="info">
+                                <span class="nombre-producto">{{produto.nombre}}</span>
+                                <div class="valores">
+                                    <span class="valor"><ion-badge class="badge">{{produto.cantidad}}</ion-badge></span><span class="valor">${{produto.precio}}</span>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+        <div class="container-btn">
+            <ion-button class="btn-shoping" type="submit" expand="full" shape="round">
+                Comprar
+            </ion-button>
+        </div>
+    </div>
+</ion-content>

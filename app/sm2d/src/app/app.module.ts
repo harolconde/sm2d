@@ -14,12 +14,15 @@ import { AppRoutingModule } from "./app-routing.module";
 import { RegistroComponent } from "./componentes/registro/registro.component";
 import { EditarUsuarioComponent } from "./componentes/editar-usuario/editar-usuario.component";
 import { AngularFireStorageModule } from "@angular/fire/storage";
+import { ProductoDetalleComponent } from './componentes/producto-detalle/producto-detalle.component';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
 
 import { from } from "rxjs";
 import { LoginComponent } from './componentes/login/login.component';
+import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
 
 @NgModule({
-    declarations: [AppComponent, RegistroComponent, LoginComponent, EditarUsuarioComponent],
+    declarations: [AppComponent, RegistroComponent, LoginComponent, EditarUsuarioComponent, ProductoDetalleComponent, CarritoComponent, TodosLosProductosComponent],
     entryComponents: [],
     imports: [
         BrowserModule,
@@ -36,6 +39,18 @@ import { LoginComponent } from './componentes/login/login.component';
             {
                 path: 'editar-perfil',
                 component: EditarUsuarioComponent
+            },
+            {
+                path: 'producto/:id',
+                component: ProductoDetalleComponent
+            },
+            {
+                path: 'carrito',
+                component: CarritoComponent
+            },
+            {
+                path: 'productos-todos',
+                component: TodosLosProductosComponent
             }
         ]),
         AppRoutingModule,

@@ -1,4 +1,8 @@
 .container-products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(60vh);
     .slides-all{
         //margin: 1rem;
         display: flex;
@@ -13,7 +17,7 @@
                 .container-img{
                     width: 100%;
                     position: relative;
-                    height: 20rem;
+                    height: 240px !important;
                     margin-bottom: 1rem;
                     overflow: hidden;
                     display: -webkit-box;

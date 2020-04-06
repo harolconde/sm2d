@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardPage } from './dashboard.page';
 import { ProductosComponent } from '../../componentes/productos/productos.component';
+import { ProductosCarritoComponent } from '../../componentes/productos-carrito/productos-carrito.component';
 import { from } from 'rxjs';
 
 const routes: Routes = [

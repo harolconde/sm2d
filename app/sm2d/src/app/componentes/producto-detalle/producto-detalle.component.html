@@ -1,0 +1,102 @@
+<ion-header [translucent]="true" class="header-component ion-no-border">
+    <ion-toolbar class="container-header">
+        <ion-buttons slot="start">
+            <ion-back-button
+                class="btn-back"
+                [text]="Volver"
+                defaultHref="/dashboard"
+            ></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end" [routerLink]="['/carrito']">
+            <ion-button class="btn-cart"
+                ><ion-icon name="cart-outline"></ion-icon
+            ></ion-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" class="container" slot="fixed">
+    <div class="container-product-detail" *ngIf="productos">
+        <ion-card class="card" id="">
+            <div class="container-img">
+                <div class="image">
+                    <img [src]="productos.img" alt="" class="img" />
+                </div>
+            </div>
+            <ion-card-content class="card-body">
+                <form [formGroup]="formAddCart" class="form" (ngSubmit)="addProductToCart()">
+                    <div class="container-card-body">
+                        <ion-list class="list">
+                            <ion-item class="item" lines="none">
+                                <span class="nombre">{{
+                                    productos.nombre
+                                }}</span>
+                            </ion-item>
+                            <ion-item class="item" >
+                                <ion-grid class="grid">
+                                    <ion-row class="row">
+                                        <ion-col class="col" size="6">
+                                            <span class="label">Precio</span>
+                                        </ion-col>
+                                        <ion-col class="col col-description" size="6">
+                                            <span class="label precio">${{ productos.precio }}</span>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-item>
+                            <ion-item class="item" >
+                                <ion-grid class="grid">
+                                    <ion-row class="row">
+                                        <ion-col class="col" size="6">
+                                            <span class="label">Cantidad</span>
+                                        </ion-col>
+                                        <ion-col class="col col-description" size="6">
+                                            <div class="content-cant">
+                                                <ion-icon class="icon" name="remove-circle-outline" (click)="contadorMin()"></ion-icon>
+                                                <ion-input placeholder="0" class="input-cant" type="number" [value]="contador" formControlName="cantidad"></ion-input>
+                                                <ion-icon
+                                                    name="add-circle-outline"
+                                                    class="icon" (click)="contadorAdd()"
+                                                ></ion-icon>
+                                            </div>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-item>
+                            <ion-item class="item" >
+                                <ion-grid class="grid">
+                                    <ion-row class="row">
+                                        <ion-col class="col" size="6">
+                                            <span class="label">Gramaje</span>
+                                        </ion-col>
+                                        <ion-col class="col col-description" size="6">
+                                            <span class="label">{{productos.gramaje}}g</span>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-item>
+                            <ion-item class="item" lines="none">
+                                <ion-grid class="grid">
+                                    <ion-row class="row">
+                                        <ion-col class="col" size="6">
+                                            <span class="label">Marca</span>
+                                        </ion-col>
+                                        <ion-col class="col col-description" size="6">
+                                            <span class="label">{{productos.marca}}</span>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-item>
+                            <ion-item class="item" lines="none">
+                                <ion-button type="submit" class="btn-add-carr" expand="full" shape="round">
+                                    Agregar al carrito
+                                </ion-button>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </form>
+            </ion-card-content>
+        </ion-card>
+    </div>
+</ion-content>

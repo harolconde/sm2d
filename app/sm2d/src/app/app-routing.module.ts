@@ -3,6 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { EditarUsuarioComponent } from './componentes/editar-usuario/editar-usuario.component';
+import { ProductoDetalleComponent } from './componentes/producto-detalle/producto-detalle.component';
+import { from } from 'rxjs';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
+import { TodosLosProductosComponent } from './componentes/todos-los-productos/todos-los-productos.component';
 
 const routes: Routes = [
   {
@@ -34,7 +38,19 @@ const routes: Routes = [
   {
     path: 'upload-products',
     loadChildren: () => import('./pages/upload-products/upload-products.module').then( m => m.UploadProductsPageModule)
-  }
+  },
+  {
+    path: 'producto/:id',
+    component: ProductoDetalleComponent
+  },
+  {
+    path: 'carrito',
+    component: CarritoComponent
+  },
+  {
+    path: 'productos-todos',
+    component: TodosLosProductosComponent
+}
 ];
 
 @NgModule({

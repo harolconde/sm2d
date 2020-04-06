@@ -10,12 +10,18 @@ import {
     AngularFirestoreDocument,
 } from "@angular/fire/firestore";
 import { ToastController } from "@ionic/angular";
-import { map } from 'rxjs/Operators';
+import { map } from "rxjs/Operators";
+import { resolve } from "url";
 
 @Injectable({
     providedIn: "root",
 })
 export class ProductsService {
+    //Presupuesto
+    public presupuesto:number = 0;
+    // Productos del carrito
+    public productsCart: Array<any> = [];
+
     // Variables privadas productos
     private productosCollection: AngularFirestoreCollection<Producto>;
     private produtos: Observable<Producto[]>;
@@ -27,6 +33,7 @@ export class ProductsService {
         private afs: AngularFirestore,
         private toast: ToastController
     ) {}
+    // Asignacion de loader
     public loader = this.loading.create({ message: "Cargando datos..." });
 
     // iniciar loading
@@ -39,6 +46,7 @@ export class ProductsService {
         await (await this.loader).dismiss();
     }
 
+    // Mostrar mensaje producto creado con exito
     async productoOk() {
         const toast = await this.toast.create({
             message: "Producto creado con exito",
@@ -47,6 +55,7 @@ export class ProductsService {
         toast.present();
     }
 
+    // Mensaje de error creacion de productos
     async productoError() {
         const toast = await this.toast.create({
             message: "Error al crear el producto",
@@ -55,26 +64,59 @@ export class ProductsService {
         toast.present();
     }
 
+    // Crear un nuevo producto
     postProducts(producto: Producto) {
         console.log(producto);
         this.productosCollection = this.afs.collection<Producto>("producto");
         this.produtos = this.productosCollection.valueChanges();
-        this.productosCollection.add(producto).then(() => {
-            this.productoOk();
-        }).catch(() => {
-            this.productoError();
-        });
+        this.productosCollection
+            .add(producto)
+            .then(() => {
+                this.productoOk();
+            })
+            .catch(() => {
+                this.productoError();
+            });
     }
 
-    getAllProducts(){
+    // Traer todos los productos
+    getAllProducts():Observable<any> {
         this.productosCollection = this.afs.collection<Producto>("producto");
         this.produtos = this.productosCollection.valueChanges();
-        return this.produtos = this.productosCollection.snapshotChanges().pipe(map( changes => {
-            return changes.map(action => {
-                const data = action.payload.doc.data() as Producto;
-                data.id = action.payload.doc.id;
-                return data;
-            });
-        }))
+        return (this.produtos = this.productosCollection.snapshotChanges().pipe(
+            map((changes) => {
+                return changes.map((action) => {
+                    const data = action.payload.doc.data() as Producto;
+                    data.id = action.payload.doc.id;
+                    return data;
+                });
+            })
+        ));
+    }
+
+    // Traer la informacion de un producto
+    getOneProduct(id) {
+        this.productosDoc = this.afs.doc<Producto>(`producto/${id}`);
+        return (this.producto = this.productosDoc.snapshotChanges().pipe(
+            map((action) => {
+                if (action.payload.exists === false) {
+                    return null;
+                } else {
+                    const data = action.payload.data() as Producto;
+                    data.id = action.payload.id;
+                    return data;
+                }
+            })
+        ));
+    }
+
+    // Devolver los productos del carrito
+    getCantProductsCartSesion() {
+        return this.productsCart;
+    }
+
+    // Devolver presupueto restante
+    getPresupuesto(){
+        return this.presupuesto;
     }
 }

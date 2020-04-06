@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" class="header-component ion-no-border">
+    <ion-toolbar class="container-header">
+        <ion-buttons slot="start">
+            <ion-back-button
+                class="btn-back"
+                [text]="Volver"
+                defaultHref="/dashboard"
+            ></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end" [routerLink]="['/carrito']">
+            <ion-button class="btn-cart"
+                ><ion-icon name="cart-outline"></ion-icon
+            ></ion-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" class="container" slot="fixed">
+    <div class="container-products">
+        <ion-card class="card" *ngFor="let producto of allProductos; index as i" id="{{producto.id}}" [routerLink]="['/producto', producto.id]">
+            <div class="container-img">
+                <div class="image">
+                    <img [src]="producto.img" alt="" class="img">
+                </div>
+            </div>
+            <ion-card-header class="card-header">
+              <ion-card-title class="card-title">{{producto.nombre}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="card-body">
+              <div class="container-card-body">
+                  <span class="precio">${{producto.precio}}</span>
+                  <ion-icon name="add-circle-outline" class="icon"></ion-icon>
+              </div>
+            </ion-card-content>
+          </ion-card>
+    </div>
+</ion-content>

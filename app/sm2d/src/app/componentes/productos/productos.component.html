@@ -1,7 +1,7 @@
 <div class="container-products">
     <ion-slides class="slides-all" pager="false" [options]="slideOpts">
         <ion-slide class="slide-item" *ngFor="let producto of productos">
-            <ion-card class="card">
+            <ion-card class="card" id="{{producto.id}}" [routerLink]="['/producto', producto.id]">
                 <div class="container-img">
                     <div class="image">
                         <img [src]="producto.img" alt="" class="img">
@@ -10,7 +10,6 @@
                 <ion-card-header class="card-header">
                   <ion-card-title class="card-title">{{producto.nombre}}</ion-card-title>
                 </ion-card-header>
-              
                 <ion-card-content class="card-body">
                   <div class="container-card-body">
                       <span class="precio">${{producto.precio}}</span>

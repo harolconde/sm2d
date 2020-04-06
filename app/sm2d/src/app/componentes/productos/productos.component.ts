@@ -19,12 +19,14 @@ export class ProductosComponent implements OnInit {
 
     ngOnInit() {
         this.getProducts();
+        this.producto.getLoading();
     }
 
     getProducts() {
         this.producto.getAllProducts().subscribe((data) => {
             this.productos = data;
             console.log(this.productos);
+            this.producto.stopLoading();
         });
     }
 }

@@ -3,9 +3,11 @@
         <ion-buttons slot="start">
             <ion-menu-button class="btn-hamburguer"></ion-menu-button>
         </ion-buttons>
-        <ion-buttons slot="end">
+        <ion-buttons slot="end" [routerLink]="['/carrito']">
+            <ion-badge class="badge">{{cantPrd}}</ion-badge>
             <ion-button class="btn-cart"
-                ><ion-icon name="cart-outline"></ion-icon
+                >
+                <ion-icon name="cart-outline"></ion-icon
             ></ion-button>
         </ion-buttons>
         <ion-title></ion-title>
@@ -14,19 +16,21 @@
 
 <ion-content [scrollEvents]="true" class="container" slot="fixed">
     <div class="presupuesto">
-        <ion-input
-            placeholder="Ingrese su presupuesto"
-            class="input-presupuesto"
-        >
-            <ion-buttons class="c-buttons" slot="end">
-                <ion-button class="button">
-                    <ion-icon
-                        name="cash-outline"
-                        class="icon"
-                    ></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-input>
+        <form [formGroup]="formPresupuesto" class="form" (change)="getValuePresupuesto()">
+            <ion-input type="number"
+                placeholder="Ingrese su presupuesto"
+                class="input-presupuesto" formControlName="presupuesto"
+            >
+                <ion-buttons class="c-buttons" slot="end">
+                    <ion-button class="button">
+                        <ion-icon
+                            name="cash-outline"
+                            class="icon"
+                        ></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+            </ion-input>
+        </form>
     </div>
     <div class="productos">
         <app-productos></app-productos>
@@ -37,11 +41,14 @@
                 <ion-col class="col col-valor" size="9">
                     <div class="restante">
                         <span class="title">Cuanto me queda?</span>
-                        <span class="valor">$</span>
+                        <span class="valor">
+                            $ {{presupuesto}}
+                        </span>
+                        
                     </div>
                 </ion-col>
                 <ion-col class="col col-btn-todos" size="3">
-                    <ion-buttons class="container-btn-apps">
+                    <ion-buttons class="container-btn-apps" [routerLink]="['/productos-todos']">
                         <ion-button class="btn-apps" slot="end"
                             ><ion-icon class="icon" name="apps-outline"></ion-icon
                         ></ion-button>
@@ -50,5 +57,8 @@
             </ion-row>
         </ion-grid>
         
+    </div>
+    <div class="products-cart">
+        <app-productos-carrito></app-productos-carrito>
     </div>
 </ion-content>
